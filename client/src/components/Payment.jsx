@@ -31,7 +31,7 @@ const Payment = () => {
       let response;
       if (activeForm === "deposit") {
         response = await axios.post(
-          "http://localhost:4000/PaySa/Transaction/deposit",
+          "https://bank-application-backend.onrender.com/PaySa/Transaction/deposit",
           {
             accountNumber: fromAccount,
             amount: amount,
@@ -40,7 +40,7 @@ const Payment = () => {
         );
       } else if (activeForm === "withdraw") {
         response = await axios.post(
-          "http://localhost:4000/PaySa/Transaction/withdraw",
+          "https://bank-application-backend.onrender.com/PaySa/Transaction/withdraw",
           {
             accountNumber: fromAccount,
             amount: amount,
@@ -49,7 +49,7 @@ const Payment = () => {
         );
       } else if (activeForm === "transfer") {
         response = await axios.post(
-          "http://localhost:4000/PaySa/Transaction/transfer",
+          "https://bank-application-backend.onrender.com/PaySa/Transaction/transfer",
           {
             fromAccountNumber: fromAccount,
             toAccountNumber: toAccount,

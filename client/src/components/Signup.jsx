@@ -45,9 +45,12 @@ export default function Signup() {
   async function SendOTP(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/PaySa/User/send-otp", {
-        email,
-      });
+      await axios.post(
+        "https://bank-application-backend.onrender.com/PaySa/User/send-otp",
+        {
+          email,
+        }
+      );
       setOtpSent(true);
     } catch (error) {
       console.log(error);
@@ -56,15 +59,18 @@ export default function Signup() {
 
   async function Register(e) {
     e.preventDefault();
-    await axios.post("http://localhost:4000/PaySa/User/Registration", {
-      name,
-      email,
-      password,
-      phone,
-      dob,
-      address,
-      otp,
-    });
+    await axios.post(
+      "https://bank-application-backend.onrender.com/PaySa/User/Registration",
+      {
+        name,
+        email,
+        password,
+        phone,
+        dob,
+        address,
+        otp,
+      }
+    );
     setName("");
     setPassword("");
     setPhone("");

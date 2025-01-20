@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
     const Accounts = async (userId) => {
         try {
             // Pass userId as a query parameter
-            const response = await axios.get(`http://localhost:4000/PaySa/Account/getByUserId`, {
+            const response = await axios.get(`https://bank-application-backend.onrender.com/PaySa/Account/getByUserId`, {
                 params: { userId },
             });
 
@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
         try {
             setError(""); // Clear previous errors
             const response = await axios.get(
-                `http://localhost:4000/PaySa/Transaction/getTransactionsForAccount?accountId=${accountId}`
+                `https://bank-application-backend.onrender.com/PaySa/Transaction/getTransactionsForAccount?accountId=${accountId}`
             );
             setTransactionData(response.data.transactions);
 
@@ -73,7 +73,7 @@ export function AuthProvider({ children }) {
 
     async function fetchTransactionSummary(accountId) {
         try {
-            const response = await axios.get(`http://localhost:4000/PaySa/Transaction/getTransactionSummary?accountId=${accountId}`);
+            const response = await axios.get(`https://bank-application-backend.onrender.com/PaySa/Transaction/getTransactionSummary?accountId=${accountId}`);
             if (response.status === 200) {
                 setTotalMoneyIn(response.data.totalMoneyIn);
 
@@ -94,7 +94,7 @@ export function AuthProvider({ children }) {
 
     async function AllUsers() {
         try {
-            const response = await axios.get("http://localhost:4000/PaySa/User/allUser")
+            const response = await axios.get("https://bank-application-backend.onrender.com/PaySa/User/allUser")
 
             setAllUser(response.data)
         } catch (error) {
@@ -104,7 +104,7 @@ export function AuthProvider({ children }) {
 
     async function AllTransaction() {
         try {
-            const response = await axios.get("http://localhost:4000/PaySa/Transaction/allTransaction")
+            const response = await axios.get("https://bank-application-backend.onrender.com/PaySa/Transaction/allTransaction")
             setAllTransaction(response.data)
         } catch (error) {
             console.error('Error:', error);

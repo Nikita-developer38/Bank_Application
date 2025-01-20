@@ -16,9 +16,12 @@ const Login = () => {
   async function SendOTP(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/PaySa/User/send-otp", {
-        email,
-      });
+      await axios.post(
+        "https://bank-application-backend.onrender.com/PaySa/User/send-otp",
+        {
+          email,
+        }
+      );
       setOtpSent(true);
     } catch (error) {
       console.log(error);
@@ -29,7 +32,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/PaySa/User/Login",
+        "https://bank-application-backend.onrender.com/PaySa/User/Login",
         {
           email,
           otp,
