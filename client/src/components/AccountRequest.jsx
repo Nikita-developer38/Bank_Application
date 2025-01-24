@@ -21,7 +21,7 @@ function AccountRequest() {
   const fetchNotifications = async () => {
     try {
       const response = await axios.get(
-        "https://bank-application-backend.onrender.com/PaySa/Admin/getAll"
+        "https://localhost:4000/PaySa/Admin/getAll"
       );
       const notifications = response.data[0]?.notifications || [];
       setNotifications(notifications);
@@ -40,7 +40,7 @@ function AccountRequest() {
   const fetchAccounts = async (userIds) => {
     try {
       const response = await axios.get(
-        "https://bank-application-backend.onrender.com/PaySa/Account/getAll"
+        "https://localhost:4000/PaySa/Account/getAll"
       );
       const accounts = response.data?.account || [];
       const mapping = {};
@@ -65,7 +65,7 @@ function AccountRequest() {
   const approveAccount = async (accountId) => {
     try {
       const response = await axios.patch(
-        `https://bank-application-backend.onrender.com/PaySa/Account/${accountId}`
+        `https://localhost:4000/PaySa/Account/${accountId}`
       );
       console.log(response.data.message);
       alert(`Account ${accountId} approved successfully!`);

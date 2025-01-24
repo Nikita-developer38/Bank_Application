@@ -11,7 +11,7 @@ function ApproveAccounts() {
   const fetchApprovedAccounts = async () => {
     try {
       const response = await axios.get(
-        "https://bank-application-backend.onrender.com/PaySa/Account/getAll"
+        "https://localhost:4000/PaySa/Account/getAll"
       );
       const accounts = response.data?.account || [];
       const approved = accounts.filter((acc) => acc.approvedByAdmin === true); // Filter approved accounts
